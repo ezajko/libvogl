@@ -15,8 +15,8 @@ SHELL = /bin/sh
 #
 #  Which cc to use
 #
-#CC = gcc
-CC = cc
+CC = gcc
+#CC = cc
 
 # 
 #  The devices you wish to have compiled into the library and the
@@ -57,7 +57,7 @@ FLOATING_POINT =
 
 #
 # On a SUN (use inline math functions, don't promote to double in expressions)
-FLOATING_POINT = /usr/lib/libm.il -fsingle
+#FLOATING_POINT = /usr/lib/libm.il -fsingle
 
 # On a SUN3 with an mc68881 floating point chip
 #FLOATING_POINT = /usr/lib/libm.il -fsingle -f68881
@@ -76,7 +76,7 @@ FLOATING_POINT = /usr/lib/libm.il -fsingle
 # Global CFLAGS can be set here.
 #
 # The default
-CFLAGS = -O -I/usr/local/R5/include
+CFLAGS = -O -I/usr/local/R5/include -I/usr/include
 
 #
 #  SUN4/SUN3
@@ -180,12 +180,12 @@ all:
 			LIBS="$(LIBS)"
 
 
-	if test -n "$(F77)" ; \
-	then cd examples; make -f Makefile.f77 \
-			LIBS="$(LIBS)" \
-			MFFLAGS="$(MFFLAGS)" \
-			F77="$(F77)" ; \
-	fi ; exit 0
+#	if test -n "$(F77)" ; \
+#	then cd examples; make -f Makefile.f77 \
+#			LIBS="$(LIBS)" \
+#			MFFLAGS="$(MFFLAGS)" \
+#			F77="$(F77)" ; \
+#	fi ; exit 0
 
 install:
 	cp src/$(LIB) $(DEST)
@@ -211,3 +211,15 @@ clobber:
 	cd examples/xview; make clobber
 	cd examples/sunview; make clobber
 	cd examples; make -f Makefile.f77 clobber
+
+
+
+
+
+
+
+
+
+
+
+
