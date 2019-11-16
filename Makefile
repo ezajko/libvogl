@@ -27,8 +27,10 @@ DOBJS = ../drivers/ps.o ../drivers/X11.o
 # (Remember /tmp usually gets cleared from time to time)
 #
 LIB = libvogl.a
+HLIB = libhershey.a 
 FONTLIB = ~/.local/share/lib/hershey/
 DEST = ~/.local/share/lib
+INCDEST = ~/.local/share/lib
 
 
 # RanLib
@@ -47,7 +49,7 @@ CFLAGS = -O -I/usr/local/R5/include -I/usr/include -g -O3 -fomit-frame-pointer -
 # Define F77 if you want the f77 examples.
 F77 = f77
 # You also define your f77 flags here too. These are the ones we used on sun
-FFLAGS = -O -w /usr/lib/libm.a
+FFLAGS = -O -w /usr/lib64/libm.a
 
 #
 # The name of the library to install and where to put it.
@@ -92,8 +94,12 @@ all:
 #
 install:
 	cp src/$(LIB) $(DEST)
+	cp hershey/src/$(HLIB) $(DEST)
+	cp src/*.h $(INCDEST)
 	chmod 644 $(DEST)/$(LIB)
+	chmod 644 $(DEST)/$(HLIB)
 	$(RANLIB) $(DEST)/$(LIB)
+	$(RANLIB) $(DEST)/$(HLIB)
 #
 clean:
 	cd src; make DOBJS="$(DOBJS)" clean
