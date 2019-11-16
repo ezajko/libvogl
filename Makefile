@@ -47,7 +47,7 @@ CFLAGS = -O -I/usr/local/R5/include -I/usr/include -g -O3 -fomit-frame-pointer -
 # Define F77 if you want the f77 examples.
 F77 = f77
 # You also define your f77 flags here too. These are the ones we used on sun
-FFLAGS = -O -w /usr/lib/libm.il
+FFLAGS = -O -w /usr/lib/libm.a
 
 #
 # The name of the library to install and where to put it.
