@@ -5,8 +5,10 @@
 extern char	*getenv();
 
 struct vdev	vdevice;
-
+/* removed 
 static FILE	*fp = stdout;
+**/
+static FILE	*fp = NULL;
 
 static int	allocated = 0;
 
