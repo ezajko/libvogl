@@ -28,9 +28,10 @@ DOBJS = ../drivers/ps.o ../drivers/X11.o
 #
 LIB = libvogl.a
 HLIB = libhershey.a 
-FONTLIB = ~/.local/share/lib/hershey
-DEST = ~/.local/share/lib
-INCDEST = ~/.local/share/lib
+FONTLIB = /tmp/vogl
+DEST = /tmp/vogl
+INCDEST = /tmp/vogl
+DIST = Dist
 
 
 # RanLib
@@ -107,6 +108,7 @@ install:
 	chmod 644 $(DEST)/$(HLIB)
 	$(RANLIB) $(DEST)/$(LIB)
 	$(RANLIB) $(DEST)/$(HLIB)
+	cp -r $(DEST) $(DIST) 
 #
 clean:
 	cd src; make DOBJS="$(DOBJS)" clean
