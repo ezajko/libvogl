@@ -28,7 +28,7 @@ DOBJS = ../drivers/ps.o ../drivers/X11.o
 #
 LIB = libvogl.a
 HLIB = libhershey.a 
-FONTLIB = ~/.local/share/lib/hershey/
+FONTLIB = ~/.local/share/lib/hershey
 DEST = ~/.local/share/lib
 INCDEST = ~/.local/share/lib
 
@@ -91,6 +91,13 @@ all:
 			MFFLAGS="$(MFFLAGS)" \
 			F77="$(F77)" ; \
 	fi ; exit 0
+fonts: 
+	cd hershey/src; make -f Makefile \
+                        CC="$(CC)" \
+                        FONTLIB="$(FONTLIB)" \
+                        MCFLAGS="$(MCFLAGS)" \
+                        LIBS="$(LIBS)" \
+                        RANLIB="$(RANLIB)"
 #
 install:
 	cp src/$(LIB) $(DEST)
