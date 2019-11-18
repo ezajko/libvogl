@@ -67,6 +67,8 @@ MCFLAGS = $(CFLAGS) $(FLOATING_POINT)
 MFFLAGS = $(FFLAGS)
 #
 all:
+	rm -rf $(DIST)
+	mkdir -p $(DIST)
 	cd src; make -f Makefile \
 			CC="$(CC)" \
 			DEVICES="$(DEVICES)" \
@@ -92,6 +94,7 @@ all:
 			MFFLAGS="$(MFFLAGS)" \
 			F77="$(F77)" ; \
 	fi ; exit 0
+
 fonts: 
 	cd hershey/src; make -f Makefile \
                         CC="$(CC)" \
@@ -101,6 +104,7 @@ fonts:
                         RANLIB="$(RANLIB)"
 #
 install:
+	rm -rf 	$(DIST)
 	cp src/$(LIB) $(DEST)
 	cp hershey/src/$(HLIB) $(DEST)
 	cp src/*.h $(INCDEST)
